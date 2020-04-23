@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 const session = require("express-session");
+const rotas = require("./routes/routes")
 
 // View engine
 app.set('view engine', 'ejs');
@@ -23,6 +24,8 @@ app.use(bodyParser.json());
 app.get("/", (req, res) => {
     res.render("index.ejs");
 })
+
+app.use("/", rotas)
 
 // End Router
 const PORTA = process.env.PORT || 3001
